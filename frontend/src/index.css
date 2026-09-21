@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: #f6f5f1;
+  color: #1c2321;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dark body {
+  background: #14191a;
+  color: #edebe4;
+}
+
+::selection {
+  background: #d7e4dc;
+}
+.dark ::selection {
+  background: #2f5d50;
+  color: #edebe4;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #2f5d50;
+  outline-offset: 2px;
+}
+.dark a:focus-visible,
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible {
+  outline-color: #4a7a69;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #e2ded4;
+  border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #c9c4b6;
+}
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #2e3835;
+}
+.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #3a4642;
+}
+
+/* Prose tweaks for markdown-rendered content (chat answers, reports) */
+.prose :where(p, ul, ol) {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.prose :where(h1, h2, h3) {
+  font-family: "Fraunces", serif;
+  color: #1c2321;
+  margin-top: 0.9em;
+  margin-bottom: 0.35em;
+}
+.dark .prose :where(h1, h2, h3) {
+  color: #edebe4;
+}
+.dark .prose :where(p, ul, ol, li) {
+  color: #edebe4;
+}
+.prose code {
+  background: #eef3f0;
+  color: #25473d;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+.dark .prose code {
+  background: #232b28;
+  color: #b4cdbf;
+}
+.prose-invert :where(p, ul, ol, code) {
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
